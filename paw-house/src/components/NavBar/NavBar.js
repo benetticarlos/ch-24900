@@ -1,11 +1,14 @@
 import { AppBar, Button, makeStyles, Toolbar } from '@material-ui/core';
-import logo from '../logo-paw.svg'
+import { CartWidget } from '../cartWidget/CartWidget.js';
+import logo from '../../logo-paw.svg';
 import React from 'react';
 
 const useStyles = makeStyles({
   bar: {
     display: 'flex',
     width: '100%',
+    flexDirection: 'row',
+    position: 'static',
   },
   toolbar: {
     display: 'flex',
@@ -22,7 +25,7 @@ const useStyles = makeStyles({
   },
   img: {
     display: 'flex',
-    width: '10vh'
+    width: '10vh',
   },
   content: {
     width: '80%',
@@ -47,6 +50,7 @@ const NavBar = () => {
             <Button>adopción</Button>
           </div>
         </Toolbar>
+        <CartWidget />
       </AppBar>
     </>
   );
