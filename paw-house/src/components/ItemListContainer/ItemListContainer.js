@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core';
 import React from 'react';
 
 import PetsIcon from '@material-ui/icons/Pets';
+import { Count } from '../Count/Count';
 
 const useStyles = makeStyles({
   landing: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles({
 
 export const ItemListContainer = ({ greeting }) => {
   const classes = useStyles();
+
   return (
     <div className={classes.landing}>
       <h1>
@@ -19,6 +21,7 @@ export const ItemListContainer = ({ greeting }) => {
         {greeting}
         <PetsIcon />
       </h1>
+      <Count initial={0} stock={12} />
     </div>
   );
 };
