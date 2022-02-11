@@ -21,6 +21,18 @@ export const ItemListContainer = ({ greeting }) => {
     });
   }, []);
 
+  const onAdd = ({
+    counter,
+    cantidadStock,
+    initial,
+    setCantidadStock,
+    setCounter,
+  }) => {
+    console.log(`se agregaron ${counter} al carrito`);
+    setCantidadStock(cantidadStock - counter);
+    setCounter(initial);
+  };
+
   return (
     <div>
       <h1 className={classes.title}>
@@ -29,7 +41,7 @@ export const ItemListContainer = ({ greeting }) => {
         <PetsIcon />
       </h1>
       {products.length > 0 ? <ItemList products={products} /> : <p>cargando</p>}
-      <Count initial={0} stock={12} />
+      <Count initial={0} stock={12} onAdd={onAdd} />
     </div>
   );
 };
