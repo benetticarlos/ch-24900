@@ -1,7 +1,7 @@
 import React from 'react';
 import { Item } from '../Item/Item';
 import { makeStyles } from '@material-ui/core';
-
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
   products: {
     display: 'flex',
@@ -15,7 +15,11 @@ export const ItemList = ({ products }) => {
   return (
     <div className={classes.products}>
       {products.map((product) => {
-        return <Item key={product.id} item={product} />;
+        return (
+          <Link to={`item/${product.id}`}>
+            <Item key={product.id} item={product} />
+          </Link>
+        );
       })}
     </div>
   );

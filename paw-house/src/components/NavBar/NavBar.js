@@ -2,6 +2,7 @@ import { AppBar, Button, makeStyles, Toolbar } from '@material-ui/core';
 import { CartWidget } from '../cartWidget/CartWidget.js';
 import logo from '../../logo-paw.svg';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   bar: {
@@ -41,16 +42,26 @@ const NavBar = () => {
     <>
       <AppBar className={classes.bar}>
         <Toolbar className={classes.toolbar}>
-          <div className={classes.logo}>
-            <img className={classes.img} src={logo} />
-          </div>
+          <Link to={'/'}>
+            <div className={classes.logo}>
+              <img className={classes.img} src={logo} />
+            </div>
+          </Link>
           <div className="content">
-            <Button>informacion</Button>
-            <Button>tienda</Button>
-            <Button>adopción</Button>
+            <Link to={'/category/juguetes'}>
+              <Button>juguetes</Button>
+            </Link>
+            <Link to={'/category/alimentos'}>
+              <Button>alimento</Button>
+            </Link>
+            <Link to={'/category/adopcion'}>
+              <Button>adopción</Button>
+            </Link>
           </div>
         </Toolbar>
-        <CartWidget />
+        <Link to={'/cart'}>
+          <CartWidget />
+        </Link>
       </AppBar>
     </>
   );

@@ -5,6 +5,7 @@ const products = [
     name: 'Cuerda de juguete',
     description: 'tu perro amará esta cuerda!',
     price: 350,
+    category: 'juguetes',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const products = [
     name: 'Alimento para perros',
     description: '9 de cada 10 perros prefiere nuestro alimento!',
     price: 1800,
+    category: 'alimentos',
   },
   {
     id: 3,
@@ -19,6 +21,23 @@ const products = [
     name: 'frazada',
     description: 'se viene el invierno, cuidá a tu amigo!',
     price: 750,
+    category: 'juguetes',
+  },
+  {
+    id: 4,
+    img: 'https://images.dog.ceo/breeds/pinscher-miniature/n02107312_4269.jpg',
+    name: 'lila',
+    description: 'perrita en adopción, muy tranquila y quiere a los nenes',
+    price: 'adopcion',
+    category: 'adopcion',
+  },
+  {
+    id: 5,
+    img: 'https://images.dog.ceo/breeds/terrier-irish/n02093991_2533.jpg',
+    name: 'toto',
+    description: 'tu nuevo mejor amigo, energico y le encanta jugar',
+    price: 'adopcion',
+    category: 'adopcion',
   },
 ];
 export const getItems = new Promise((resolve, reject) => {
