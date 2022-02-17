@@ -1,5 +1,6 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Link, makeStyles } from '@material-ui/core';
+import { Count } from '../Count/Count';
 
 const useStyles = makeStyles({
   itemContainer: {
@@ -19,6 +20,19 @@ const useStyles = makeStyles({
   },
 });
 export const ItemDetail = ({ item }) => {
+  const [itemCount, setItemCount] = useState();
+  const onAddItem = ({
+    counter,
+    cantidadStock,
+    initial,
+    setCantidadStock,
+    setCounter,
+  }) => {
+    console.log(`se agregaron ${counter} al carrito`);
+    setCantidadStock(cantidadStock - counter);
+    setCounter(initial);
+    setItemCount(counter);
+  };
   const classes = useStyles();
 
   return (
@@ -29,6 +43,11 @@ export const ItemDetail = ({ item }) => {
         <p className="price"> precio: {item.price}</p>
         <p>{item.description}</p>
       </div>
+      {!itemCount ? (
+        <Count initial={0} stock={12} onAdd={onAddItem} />
+      ) : (
+        <Link to="/cart">Ir al carrito</Link>
+      )}
     </div>
   );
 };
