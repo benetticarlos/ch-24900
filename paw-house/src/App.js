@@ -4,7 +4,6 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from './components/ItemDetalContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -14,7 +13,6 @@ function App() {
           path="/"
           element={<ItemListContainer greeting={'Welcome to paw-house!'} />}
         />
-        {/* // <ItemListContainer greeting={'Welcome to paw-house!'} /> */}
         <Route
           path="/category/:categoryName"
           element={<ItemListContainer greeting={'Welcome to paw-house!'} />}
