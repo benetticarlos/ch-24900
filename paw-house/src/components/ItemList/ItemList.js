@@ -16,7 +16,7 @@ export const ItemList = ({ products }) => {
     <div className={classes.products}>
       {products.map((product) => {
         return (
-          <Link to={`item/${product.id}`}>
+          <Link to={`/item/${product.id}`}>
             <Item key={product.id} item={product} />
           </Link>
         );
