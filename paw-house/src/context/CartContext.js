@@ -8,11 +8,29 @@ const CartContextProvider = ({children}) => {
 
   const [cart, setCart] = useState([])
 
-  const addToCart = (counter, item) => {
-    setCart([...cart, {...item, cantidad: counter}]);
+  const isOnCart = (id) => {
+    const res = cart.some((prod) => prod.id === id)
+    return res
   }
+
+
+  const addToCart = (counter, item) => {
+    if (isOnCart(item.id)) {
+      alert('Este producto ya está en el carrito!')
+    } else {
+      setCart([...cart, { ...item, cantidad: counter }]);
+    }
+  }
+
+  const vaciarCarrito = () => {
+    setCart([])
+  }
+
+
+
+  
   return (
-    <CartContext.Provider value={{addToCart, cart}}>
+    <CartContext.Provider value={{ addToCart, cart, vaciarCarrito }}>
       {children}
     </CartContext.Provider>
   );
