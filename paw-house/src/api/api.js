@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: 1,
     img: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresources.claroshop.com%2Fmedios-plazavip%2Fs2%2F10583%2F911065%2F5cbddcfc62d99-pesa2pelotas21-1600x1600.jpg&f=1&nofb=1',

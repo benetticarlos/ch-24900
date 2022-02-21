@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, makeStyles } from '@material-ui/core';
 import { Count } from '../Count/Count';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const useStyles = makeStyles({
   itemContainer: {
@@ -21,6 +23,8 @@ const useStyles = makeStyles({
 });
 export const ItemDetail = ({ item }) => {
   const [itemCount, setItemCount] = useState();
+  const {addToCart, cart} = useContext(CartContext)
+  
   const onAddItem = ({
     counter,
     cantidadStock,
@@ -32,9 +36,11 @@ export const ItemDetail = ({ item }) => {
     setCantidadStock(cantidadStock - counter);
     setCounter(initial);
     setItemCount(counter);
+    addToCart(counter, item);
   };
   const classes = useStyles();
 
+  console.log('cart :>> ', cart);
   return (
     <div key={item.id} className={classes.itemContainer}>
       <img src={item.img} alt="imagen del producto" className={classes.img} />

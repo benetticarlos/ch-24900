@@ -31,17 +31,6 @@ export const ItemListContainer = ({ greeting }) => {
     });
   }, [categoryName]);
 
-  const onAdd = ({
-    counter,
-    cantidadStock,
-    initial,
-    setCantidadStock,
-    setCounter,
-  }) => {
-    console.log(`se agregaron ${counter} al carrito`);
-    setCantidadStock(cantidadStock - counter);
-    setCounter(initial);
-  };
 
   return (
     <div>
