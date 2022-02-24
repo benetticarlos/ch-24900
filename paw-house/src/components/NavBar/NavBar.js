@@ -34,6 +34,9 @@ const useStyles = makeStyles({
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
   },
+  cartButton: {
+    display: 'flex',
+  },
 });
 
 const NavBar = () => {
@@ -59,7 +62,7 @@ const NavBar = () => {
             </Link>
           </div>
         </Toolbar>
-        <Link to={'/cart'}>
+        <Link className={classes.cartButton} to={'/cart'}>
           <CartWidget />
         </Link>
       </AppBar>

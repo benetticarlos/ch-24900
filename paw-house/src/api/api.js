@@ -43,5 +43,5 @@ export const products = [
 export const getItems = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve(products);
-  }, 2500);
+  }, 500);
 });

@@ -1,7 +1,8 @@
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import { CartContext } from '../../context/CartContext';
 
 const useStyles = makeStyles({
   cartbox: {
@@ -11,18 +12,33 @@ const useStyles = makeStyles({
     flexDirection: 'column',
   },
   cart: {
-    // width: '100%',
     backgroundColor: 'grey',
+  },
+  itemsCounter: {
+    textDecoration: 'none',
+    color: 'black',
+    placeSelf: 'center',
   },
 });
 
 export const CartWidget = () => {
   const classes = useStyles();
+  const { totalItems } = useContext(CartContext);
   return (
-    <div className={classes.cartbox}>
-      <IconButton aria-label="add to shopping cart" className={classes.cart}>
-        <AddShoppingCartIcon />
-      </IconButton>
+    <div>
+      {totalItems === 0 ? (
+        <></>
+      ) : (
+        <div className={classes.cartbox}>
+          <IconButton
+            aria-label="add to shopping cart"
+            className={classes.cart}
+          >
+            <AddShoppingCartIcon />
+          </IconButton>
+          <span className={classes.itemsCounter}>{totalItems}</span>
+        </div>
+      )}
     </div>
   );
 };
